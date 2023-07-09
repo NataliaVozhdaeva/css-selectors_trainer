@@ -1,11 +1,44 @@
-import { answears } from '../const';
-import { htmlFor1, htmlFor2, htmlFor3, htmlFor4, htmlFor5 } from '../../view/code-levels';
-import { layuotFor1, layuotFor2, layuotFor3, layuotFor4, layuotFor5 } from '../../view/layot-levels';
-import { taskFor1, taskFor2, taskFor3, taskFor4, taskFor5 } from '../../view/task-levels';
+//import { answears } from '../const';
+//import { htmlFor1 /* , htmlFor2, htmlFor3, htmlFor4, htmlFor5 */ } from '../../view/code-levels';
+//import { layuotFor1 /* , layuotFor2, layuotFor3, layuotFor4, layuotFor5 */ } from '../../view/layot-levels';
+import { TaskView } from '../../view/task-levels';
+import { tasks } from '../const';
 
-const codeComponents = [htmlFor1(), htmlFor2(), htmlFor3(), htmlFor4(), htmlFor5()];
-const layioutComponents = [layuotFor1(), layuotFor2(), layuotFor3(), layuotFor4(), layuotFor5()];
-const taskComponents = [taskFor1(), taskFor2(), taskFor3(), taskFor4(), taskFor5()];
+export default class Game {
+    currentLevel = 0;
+    taskComponents: object[] = tasks;
+    taskContainer;
+    taskContent = this.taskComponents[this.currentLevel];
+    task = '';
+    htmlEditor = document.querySelector<HTMLElement>('.html-view');
+    //layout = document.querySelector<HTMLElement>('.game-part');
+
+    constructor() {
+        this.taskContainer = document.querySelector<HTMLElement>('.task');
+
+        //this.taskContent = new TaskView(this.taskComponents[this.currentLevel]);
+    }
+
+    init(): void {
+        //levels[currentLevel].classList.add('current');
+
+        if (/* !htmlEditor || !layout || */ !this.taskContainer) throw TypeError;
+        console.log(new TaskView(this.taskContent).render);
+        //this.task = new TaskView(this.taskContent)
+
+        // htmlEditor.innerHTML = codeComponents[currentLevel];
+        // layout.innerHTML = layioutComponents[currentLevel];
+        this.taskContainer.innerHTML = new TaskView(this.taskContent).render;
+
+        //this.taskContainer.insertAdjacentElement('beforeend', this.taskContent);
+    }
+}
+
+//console.log(tasks);
+
+/*const codeComponents = [htmlFor1()  , htmlFor2(), htmlFor3(), htmlFor4(), htmlFor5() ];
+ const layioutComponents = [layuotFor1(), layuotFor2(), layuotFor3(), layuotFor4(), layuotFor5() ];
+const taskComponents = [TaskView , taskFor2(), taskFor3(), taskFor4(), taskFor5() ];
 let currentLevel = 0;
 const level = document.querySelector<HTMLElement>('.level');
 const levels = document.querySelectorAll<HTMLElement>('.level-item');
@@ -28,7 +61,7 @@ export function init(currentLevel: number): void {
 
     htmlEditor.innerHTML = codeComponents[currentLevel];
     layout.innerHTML = layioutComponents[currentLevel];
-    taskContainer.innerHTML = taskComponents[currentLevel];
+     taskContainer.innerHTML = taskComponents[currentLevel];
 }
 
 export function interactivity(): void {
@@ -113,6 +146,4 @@ function checkAnswear(): void {
             }, 1500);
         });
     }
-}
-
-export default { interactivity, checkAnswear };
+} */

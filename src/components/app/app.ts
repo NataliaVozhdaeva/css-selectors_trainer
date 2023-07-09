@@ -1,40 +1,39 @@
 //import { answears } from '../const';
-//import { htmlFor1 /* , htmlFor2, htmlFor3, htmlFor4, htmlFor5 */ } from '../../view/code-levels';
+import { CodeView } from '../../view/code-levels';
 //import { layuotFor1 /* , layuotFor2, layuotFor3, layuotFor4, layuotFor5 */ } from '../../view/layot-levels';
 import { TaskView } from '../../view/task-levels';
-import { tasks } from '../const';
+import { tasks, codes } from '../const';
 
 export default class Game {
+    levels = document.querySelectorAll<HTMLElement>('.level-item');
     currentLevel = 0;
     taskComponents: object[] = tasks;
     taskContainer;
     taskContent = this.taskComponents[this.currentLevel];
     task = '';
-    htmlEditor = document.querySelector<HTMLElement>('.html-view');
-    //layout = document.querySelector<HTMLElement>('.game-part');
+    codeComponents: object[] = codes;
+    htmlEditor;
+    htmlContent = this.codeComponents[this.currentLevel];
+    layout;
 
     constructor() {
         this.taskContainer = document.querySelector<HTMLElement>('.task');
-
-        //this.taskContent = new TaskView(this.taskComponents[this.currentLevel]);
+        this.htmlEditor = document.querySelector<HTMLElement>('.html-view');
+        this.layout = document.querySelector<HTMLElement>('.game-part');
     }
 
     init(): void {
-        //levels[currentLevel].classList.add('current');
+        this.levels[this.currentLevel].classList.add('current');
 
-        if (/* !htmlEditor || !layout || */ !this.taskContainer) throw TypeError;
-        console.log(new TaskView(this.taskContent).render);
-        //this.task = new TaskView(this.taskContent)
+        if (!this.htmlEditor || /*!layout || */ !this.taskContainer) throw TypeError;
+        console.log(this.htmlContent);
+        console.log(this.taskContent);
 
-        // htmlEditor.innerHTML = codeComponents[currentLevel];
         // layout.innerHTML = layioutComponents[currentLevel];
+        this.htmlEditor.innerHTML = new CodeView(this.htmlContent).render;
         this.taskContainer.innerHTML = new TaskView(this.taskContent).render;
-
-        //this.taskContainer.insertAdjacentElement('beforeend', this.taskContent);
     }
 }
-
-//console.log(tasks);
 
 /*const codeComponents = [htmlFor1()  , htmlFor2(), htmlFor3(), htmlFor4(), htmlFor5() ];
  const layioutComponents = [layuotFor1(), layuotFor2(), layuotFor3(), layuotFor4(), layuotFor5() ];

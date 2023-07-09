@@ -48,29 +48,32 @@ export const tasks: object[] = [
             'Do you remember notion - to choose element, which has two selectors in the same time you should write this selectors without whitespase? The reason is - with whitespace it will be another selector, which will work for element inside. Almost the same way you can use ">" between selectors. The difference is that whitespace point to any child (despite the nesting), but ">" can work with just direct descendants.',
         examples:
             'Rules below selector <span class="selector">pillow .my-class</span> will apply to elements whith &lt;el class="my-class"&gt; inside the &lt;pillow&gt; (as well as pillow > .my-class). Remember about whitespace! It\'s not necessary with additional symbols, but good for readability.',
-    } /* 
+    },
+];
+
+export const codes: object[] = [
     {
-        title: 'Tag selector',
-        rules: 'The first and simplest selector - is selector by tag. It takes all elements by tag-name.',
-        examples:
-            'Rules below selector <span class="selector">div</span> will apply to all &lt;div&gt; on your page, <span class="selector">p</span> to all &lt;p&gt; and etc.',
+        code:
+            '<div class="tag">&lt;cat /&gt;</div><div class="tag">&lt;cat /&gt;</div><div class="tag">&lt;cat /&gt;</div>',
     },
     {
-        title: 'Tag selector',
-        rules: 'The first and simplest selector - is selector by tag. It takes all elements by tag-name.',
-        examples:
-            'Rules below selector <span class="selector">div</span> will apply to all &lt;div&gt; on your page, <span class="selector">p</span> to all &lt;p&gt; and etc.',
+        code:
+            '<div class="tag">&lt;cat class="ginger" /&gt;</div> <div class="tag">&lt;cat class="black"/&gt;</div><div class="tag">&lt;cat class="gray"/&gt;</div>',
     },
     {
-        title: 'Tag selector',
-        rules: 'The first and simplest selector - is selector by tag. It takes all elements by tag-name.',
-        examples:
-            'Rules below selector <span class="selector">div</span> will apply to all &lt;div&gt; on your page, <span class="selector">p</span> to all &lt;p&gt; and etc.',
+        code:
+            '<div class="tag">&lt;cat /&gt;</div><div class="tag">&lt;cushion /&gt;</div><div class="tag">&lt;cushion class="cushion" /&gt;</div>',
     },
     {
-        title: 'Tag selector',
-        rules: 'The first and simplest selector - is selector by tag. It takes all elements by tag-name.',
-        examples:
-            'Rules below selector <span class="selector">div</span> will apply to all &lt;div&gt; on your page, <span class="selector">p</span> to all &lt;p&gt; and etc.',
-    }, */,
+        code:
+            '<div class="tag">&lt;cat class="ginger" /&gt;</div><div class="tag">&lt;cushion/&gt;</div><div class="tag">&lt;cat class="gray"/&gt;</div>',
+    },
+    {
+        code:
+            '<div class="tag">&lt;cat class="ginger" /&gt;</div><div class="tag">&lt;cushion/&gt;</div><div class="tag">&lt;cat class="gray"/&gt;</div>',
+    },
+    {
+        code:
+            '<div class="tag">&lt;cushion&gt;</div><div class="tag inside">\u00A0\u00A0\u00A0\u00A0&lt;cat /&gt;</div><div class="tag">&lt;/cushion&gt;</div><div class="tag">&lt;cushion&gt;</div><div class="tag">&lt;/cushion&gt;</div><div class="tag">&lt;cat class="gray"/&gt;</div>',
+    },
 ];

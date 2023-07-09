@@ -4,4 +4,8 @@ interface ITask {
     examples?: string;
 }
 
-export { ITask };
+interface ICode {
+    code?: string;
+}
+
+export { ITask, ICode };

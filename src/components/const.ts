@@ -54,7 +54,7 @@ export const tasks: object[] = [
 export const codes: object[] = [
     {
         code:
-            '<div class="tag">&lt;cat /&gt;</div><div class="tag">&lt;cat /&gt;</div><div class="tag">&lt;cat /&gt;</div>',
+            '<div class="tag">&lt;cat /&gt;</div><div class="tag">&lt;cat /&gt;</div><div class="tag">&lt;cushion /&gt;</div>',
     },
     {
         code:

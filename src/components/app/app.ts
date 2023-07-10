@@ -1,8 +1,7 @@
-//import { answears } from '../const';
 import { CodeView } from '../../view/code-levels';
 import { LayoutView } from '../../view/layot-levels';
 import { TaskView } from '../../view/task-levels';
-import { tasks, codes, layouts } from '../const';
+import { answears, tasks, codes, layouts } from '../const';
 
 export default class Game {
     levels = document.querySelectorAll<HTMLElement>('.level-item');
@@ -17,25 +16,88 @@ export default class Game {
     layout;
     layoutComponents: object[] = layouts;
     layoutContent = this.layoutComponents[this.currentLevel];
+    el;
+    input;
+    okBtn;
+    answearsArr: Array<string | object> = answears;
+    answears: string | object;
 
     constructor() {
         this.taskContainer = document.querySelector<HTMLElement>('.task');
         this.htmlEditor = document.querySelector<HTMLElement>('.html-view');
         this.layout = document.querySelector<HTMLElement>('.game-part');
+
+        this.answears = this.answearsArr[this.currentLevel];
+
+        this.el = document.querySelectorAll<HTMLElement>('.el');
+        this.input = document.querySelector<HTMLInputElement>('.input');
+        this.okBtn = document.querySelector<HTMLElement>('.btn');
+
+        /*  document.addEventListener('keyup', function (event) {
+        if (event.code === 'Enter') {
+            checkAnswear();
+        }
+    });  */
     }
 
     init(): void {
         this.levels[this.currentLevel].classList.add('current');
 
         if (!this.htmlEditor || !this.layout || !this.taskContainer) throw TypeError;
-        console.log(this.layoutContent);
-        console.log(this.taskContent);
 
         this.layout.innerHTML = new LayoutView(this.layoutContent).render;
         this.htmlEditor.innerHTML = new CodeView(this.htmlContent).render;
         this.taskContainer.innerHTML = new TaskView(this.taskContent).render;
+
+        console.log(this.answears);
+        this.okBtn?.addEventListener('click', this.checkAnswear);
+    }
+
+    checkAnswear(): void {
+        this.input = document.querySelector<HTMLInputElement>('.input');
+        if (!this.input) throw TypeError;
+
+        console.log(this.answears);
+
+        if (
+            this.input.value === this.answears
+            /* ||
+            this.input.value === answears[this.currentLevel][0] ||
+            this.input.value === answears[this.currentLevel][1] */
+        ) {
+            console.log(true);
+            /*  this.input.value = '';
+            this.el.forEach((element) => element.classList.add('disappear'));
+            this.levels[this.currentLevel].classList.remove('current');
+            this.levels[this.currentLevel].classList.add('done');
+            this.currentLevel += 1;
+            this.levels[this.currentLevel].classList.add('current'); */
+
+            setTimeout(() => {
+                if (!this.htmlEditor || !this.layout || !this.task) throw TypeError;
+
+                this.htmlEditor.innerHTML = '';
+                this.layout.innerHTML = '';
+                //his.task.innerHTML = '';
+                //this.init(this.currentLevel);
+                //interactivity();
+            }, 1500);
+        } else {
+            /* this.el.forEach((element) => {
+                if (!this.input) throw TypeError;
+
+                element.classList.add('shake');
+                this.input.value = '';
+                setTimeout(() => {
+                    element.classList.remove('shake');
+                }, 1500);
+                
+            }) */
+            console.log(false);
+        }
     }
 }
+
 /*
 let currentLevel = 0;
 const level = document.querySelector<HTMLElement>('.level');

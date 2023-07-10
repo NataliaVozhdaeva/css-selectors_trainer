@@ -1,11 +1,10 @@
-type answear = string | string[];
-
-export const answears: answear[] = [
+export const answears: string[] = [
     'cat',
     '.gray',
-    ['cushion, .ginger', '.ginger, cushion'],
+    '*',
+    'cushion, .ginger .ginger, cushion',
     'cat.gray',
-    ['cushion cat', 'cushion > cat'],
+    'cushion cat cushion > cat',
 ];
 
 export const tasks: object[] = [
@@ -70,7 +69,7 @@ export const codes: object[] = [
     },
     {
         code:
-            '<div class="tag">&lt;cat class="ginger" /&gt;</div><div class="tag">&lt;cushion/&gt;</div><div class="tag">&lt;cat class="gray"/&gt;</div>',
+            '<div class="tag">&lt;cat class="ginger" /&gt;</div><div class="tag">&lt;cushion class="gray"/&gt;</div><div class="tag">&lt;cat class="gray"/&gt;</div>',
     },
     {
         code:
@@ -102,7 +101,7 @@ export const layouts: object[] = [
     {
         title: 'Choose a cat with green eyes!',
         code:
-            '<div class="game-container"><div class="el"><img class="cat" src="./assets/img/ginger.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat" src="./assets/img/black.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat active" src="./assets/img/gray.png" alt="" width="auto" height="200px"></div></div>',
+            '<div class="game-container"><div class="el"><img class="cat" src="./assets/img/ginger.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat" src="./assets/img/cushion.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat active" src="./assets/img/gray.png" alt="" width="auto" height="200px"></div></div>',
     },
     {
         title: 'Choose a cat on a cushion!',

@@ -1,8 +1,8 @@
 //import { answears } from '../const';
 import { CodeView } from '../../view/code-levels';
-//import { layuotFor1 /* , layuotFor2, layuotFor3, layuotFor4, layuotFor5 */ } from '../../view/layot-levels';
+import { LayoutView } from '../../view/layot-levels';
 import { TaskView } from '../../view/task-levels';
-import { tasks, codes } from '../const';
+import { tasks, codes, layouts } from '../const';
 
 export default class Game {
     levels = document.querySelectorAll<HTMLElement>('.level-item');
@@ -15,6 +15,8 @@ export default class Game {
     htmlEditor;
     htmlContent = this.codeComponents[this.currentLevel];
     layout;
+    layoutComponents: object[] = layouts;
+    layoutContent = this.layoutComponents[this.currentLevel];
 
     constructor() {
         this.taskContainer = document.querySelector<HTMLElement>('.task');
@@ -25,19 +27,16 @@ export default class Game {
     init(): void {
         this.levels[this.currentLevel].classList.add('current');
 
-        if (!this.htmlEditor || /*!layout || */ !this.taskContainer) throw TypeError;
-        console.log(this.htmlContent);
+        if (!this.htmlEditor || !this.layout || !this.taskContainer) throw TypeError;
+        console.log(this.layoutContent);
         console.log(this.taskContent);
 
-        // layout.innerHTML = layioutComponents[currentLevel];
+        this.layout.innerHTML = new LayoutView(this.layoutContent).render;
         this.htmlEditor.innerHTML = new CodeView(this.htmlContent).render;
         this.taskContainer.innerHTML = new TaskView(this.taskContent).render;
     }
 }
-
-/*const codeComponents = [htmlFor1()  , htmlFor2(), htmlFor3(), htmlFor4(), htmlFor5() ];
- const layioutComponents = [layuotFor1(), layuotFor2(), layuotFor3(), layuotFor4(), layuotFor5() ];
-const taskComponents = [TaskView , taskFor2(), taskFor3(), taskFor4(), taskFor5() ];
+/*
 let currentLevel = 0;
 const level = document.querySelector<HTMLElement>('.level');
 const levels = document.querySelectorAll<HTMLElement>('.level-item');

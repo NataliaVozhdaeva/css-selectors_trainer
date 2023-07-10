@@ -8,4 +8,9 @@ interface ICode {
     code?: string;
 }
 
-export { ITask, ICode };
+interface ILayout {
+    title?: string;
+    code?: string;
+}
+
+export { ITask, ICode, ILayout };

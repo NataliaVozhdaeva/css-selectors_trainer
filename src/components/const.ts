@@ -77,3 +77,36 @@ export const codes: object[] = [
             '<div class="tag">&lt;cushion&gt;</div><div class="tag inside">\u00A0\u00A0\u00A0\u00A0&lt;cat /&gt;</div><div class="tag">&lt;/cushion&gt;</div><div class="tag">&lt;cushion&gt;</div><div class="tag">&lt;/cushion&gt;</div><div class="tag">&lt;cat class="gray"/&gt;</div>',
     },
 ];
+
+export const layouts: object[] = [
+    {
+        title: 'Choose cats!',
+        code:
+            '<div class="el"><img class="cat active" src="./assets/img/ginger.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat active" src="./assets/img/black.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat" src="./assets/img/cushion.png" alt="" width="auto" height="200px"></div>',
+    },
+    {
+        title: 'Choose the one gray cat!',
+        code:
+            '<div class="game-container"><div class="el"><img class="cat" src="./assets/img/ginger.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat" src="./assets/img/black.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat active" src="./assets/img/gray.png" alt="" width="auto" height="200px"></div></div>',
+    },
+    {
+        title: 'Choose all elements!',
+        code:
+            '<div class="game-container"><div class="el"><img class="cat active" src="./assets/img/ginger.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat active" src="./assets/img/cushion.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat active" src="./assets/img/cushion.png" alt="" width="auto" height="200px"></div></div>',
+    },
+    {
+        title: 'Choose a ginger cat and a cushion!!',
+        code:
+            ' <div class="game-container"><div class="el"><img class="cat active" src="./assets/img/ginger.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat active" src="./assets/img/cushion.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat" src="./assets/img/gray.png" alt="" width="auto" height="200px"></div></div>',
+    },
+    {
+        title: 'Choose a cat with green eyes!',
+        code:
+            '<div class="game-container"><div class="el"><img class="cat" src="./assets/img/ginger.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat" src="./assets/img/black.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat active" src="./assets/img/gray.png" alt="" width="auto" height="200px"></div></div>',
+    },
+    {
+        title: 'Choose a cat on a cushion!',
+        code:
+            '<div class="game-container"><div class="el out"> <div class="el in"><img class="cat active" src="./assets/img/ginger.png" alt="" width="auto" height="200px"></div> <img class="cat" src="./assets/img/cushion.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat" src="./assets/img/cushion.png" alt="" width="auto" height="200px"></div><div class="el"><img class="cat" src="./assets/img/gray.png" alt="" width="auto" height="200px"></div></div>',
+    },
+];
